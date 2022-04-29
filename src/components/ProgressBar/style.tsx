@@ -1,6 +1,8 @@
-import { makeStyles, Theme } from "@material-ui/core"
+import { SxProps } from "@mui/material"
 
-const useStyles = makeStyles<Theme>((theme) => ({
+const styles: {
+  [key: string]: SxProps
+} = {
   progressBarWrapper: {
     // display: "flex",
   },
@@ -8,10 +10,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
     height: "10px",
     margin: "0 8px",
     borderRadius: "5px",
-    // "& .MuiLinearProgress-colorSecondary": {
-    //   backgroundColor: "#e6e6e6",
-    // },
   },
-}))
+}
 
-export default useStyles
+export default styles

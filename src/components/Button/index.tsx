@@ -1,22 +1,20 @@
 import React from "react"
-import Button from "@material-ui/core/Button"
-import useStyle from "./style"
-import { Box } from "@material-ui/core"
+import { Box, Button } from "@mui/material"
+import styles from "./style"
 
 type ButtonProps = {
   title: string
-  // children: React.ReactChild
-  // onClick: () => void
+  onClick: () => void
 }
 
-const ButtonComponent = ({ title }: ButtonProps) => {
-  const classes = useStyle()
+const ButtonComponent = ({ title, onClick }: ButtonProps) => {
   return (
-    <Box className={classes.buttonWrapper}>
+    <Box sx={styles.buttonWrapper}>
       <Button
+        onClick={onClick}
         variant="contained"
         color="primary"
-        className={classes.buttonStyle}
+        sx={styles.buttonStyle}
       >
         {title}
       </Button>

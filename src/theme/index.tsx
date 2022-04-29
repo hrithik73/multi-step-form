@@ -1,7 +1,6 @@
-import { createTheme } from "@material-ui/core"
-import createPalette from "@material-ui/core/styles/createPalette"
+import { createTheme } from "@mui/material"
 
-declare module "@material-ui/core/styles/createPalette" {
+declare module "@mui/material/styles" {
   interface Palette {
     [key: string]: any
   }
@@ -11,47 +10,13 @@ declare module "@material-ui/core/styles/createPalette" {
 }
 
 const theme = createTheme({
-  overrides: {},
-  palette: createPalette({
+  palette: {
     primary: {
-      main: "#a600eb",
+      main: "#a600ed",
     },
     secondary: {
       main: "#00e29f",
     },
-    custom: {
-      white: "#FFFFFF",
-      labelBackground: "#F6F7F7",
-      cardBorder: "#BECBD9",
-      btnBackground: "#0100A2",
-      boxShadow: "#0000001A",
-      checkbox: "#02029A",
-      cardShadow: "#0001A533",
-      line: "#02029A4D",
-      selectedBorder: "#0001a5",
-      fieldUnderline: "#ced5d9",
-      grey: "#edeff0",
-      error: "#f44336",
-    },
-    text: {
-      primary: "#002046",
-      secondary: "#9eaeb8",
-    },
-  }),
-  typography: {
-    fontFamily: "'Roboto', sans-serif",
-  },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920,
-    },
-  },
-  shape: {
-    borderRadius: 5,
   },
 })
 

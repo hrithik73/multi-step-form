@@ -1,13 +1,18 @@
-import { makeStyles, Theme } from "@material-ui/core"
+import { SxProps } from "@mui/material"
 
-const useStyles = makeStyles<Theme>((theme) => ({
+const styles: {
+  [key: string]: SxProps
+} = {
   buttonWrapper: {
     display: "flex",
+    justifyContent: "center",
+    padding: "10px 0",
   },
   buttonStyle: {
-    margin: "0 8px",
-    borderRadius: "5px",
+    width: "300px",
+    height: "50px",
+    borderRadius: "30px",
   },
-}))
+}
 
-export default useStyles
+export default styles

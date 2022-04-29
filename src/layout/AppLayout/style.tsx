@@ -1,6 +1,8 @@
-import { Theme, makeStyles } from "@material-ui/core"
+import { SxProps } from "@mui/material"
 
-const useStyles = makeStyles<Theme>((theme) => ({
+const styles: {
+  [key: string]: SxProps
+} = {
   layoutWrapper: {
     display: "flex",
     justifyContent: "center",
@@ -15,9 +17,9 @@ const useStyles = makeStyles<Theme>((theme) => ({
     boxShadow: "0px 0px 10px #e6e6e6",
     width: "50%",
     backgroundColor: "#f4f6f8",
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-    },
+    // [breakpoints.down("xs")]: {
+    //   width: "100%",
+    // },
   },
   header: {
     height: "100px",
@@ -26,6 +28,13 @@ const useStyles = makeStyles<Theme>((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
   },
-}))
+  firstPageHeader: {
+    height: "100px",
+    width: "100%",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+}
 
-export default useStyles
+export default styles

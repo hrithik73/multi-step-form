@@ -1,17 +1,16 @@
+import { Box, LinearProgress } from "@mui/material"
 import * as React from "react"
-import { Box, LinearProgress } from "@material-ui/core"
-import useStyles from "./style"
+import styles from "./style"
 
 type ProgressBarProps = {
   value: number
 }
 
 const ProgressBar = ({ value }: ProgressBarProps) => {
-  const classes = useStyles()
   return (
-    <Box className={classes.progressBarWrapper}>
+    <Box sx={styles.progressBarWrapper}>
       <LinearProgress
-        className={classes.progressBarStyle}
+        sx={styles.progressBarStyle}
         variant="determinate"
         value={value}
         color="secondary"

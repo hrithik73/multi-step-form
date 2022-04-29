@@ -1,18 +1,30 @@
-import Home from "./home"
-import { CssBaseline, ThemeProvider } from "@material-ui/core"
-import { Provider } from "react-redux"
-import theme from "../src/theme"
-import AppLayout from "../src/layout/AppLayout"
+import {
+  ContactDetails,
+  Department,
+  PersonalDetails,
+  ThankYou,
+  Welcome,
+} from "components/FormComponents/Forms"
+import React from "react"
+import { useAppSelector } from "../src/redux/store"
 
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppLayout>
-        <Home />
-      </AppLayout>
-    </ThemeProvider>
-  )
+const Component = () => {
+  const { currentFormNumber } = useAppSelector((state) => state.formReducer)
+
+  switch (currentFormNumber) {
+    case 0:
+      return <Welcome />
+    case 1:
+      return <Department />
+    case 2:
+      return <ContactDetails />
+    case 3:
+      return <PersonalDetails />
+    case 4:
+      return <ThankYou />
+    default:
+      return <Welcome />
+  }
 }
 
-export default App
+export default Component

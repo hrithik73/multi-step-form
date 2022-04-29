@@ -1,28 +1,46 @@
 import React from "react"
-import { Box, Button, Typography } from "@material-ui/core"
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos"
-import CloseIcon from "@material-ui/icons/Close"
+import { Box } from "@mui/material"
+import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft"
+import CloseIcon from "@mui/icons-material/Close"
 
-import ProgressBar from "../../components/ProgressBar"
-import useStyle from "./style"
-import ButtonComponent from "../../components/Button"
+import ProgressBar from "components/ProgressBar"
+import { useAppDispatch, useAppSelector } from "redux/store"
+import { decrementCurrentFormNumber } from "redux/action"
+import styles from "./style"
 
 type AppLayoutProps = {
   children: React.ReactChild
 }
 const AppLayout = ({ children }: AppLayoutProps) => {
-  const classes = useStyle()
+  const { currentFormNumber, _persist } = useAppSelector(
+    (state) => state.formReducer
+  )
+  const dispatch = useAppDispatch()
+
+  const goBack = () => {
+    dispatch(decrementCurrentFormNumber())
+  }
 
   return (
-    <Box className={classes.layoutWrapper}>
-      <Box className={classes.formWrapper}>
-        <Box className={classes.header}>
-          <ArrowBackIosIcon />
+    <Box sx={styles.layoutWrapper}>
+      <Box sx={styles.formWrapper}>
+        <Box
+          sx={currentFormNumber === 0 ? styles.firstPageHeader : styles.header}
+        >
+          <Box
+            sx={
+              currentFormNumber === 0
+                ? { display: "none" }
+                : { display: "flex" }
+            }
+            onClick={goBack}
+          >
+            <KeyboardDoubleArrowLeftIcon />
+          </Box>
           <CloseIcon />
         </Box>
-        <ProgressBar value={10} />
-        <Typography>Helllo</Typography>
-        <ButtonComponent title="Submit" />
+        <ProgressBar value={currentFormNumber * 20} />
+        {children}
       </Box>
     </Box>
   )
