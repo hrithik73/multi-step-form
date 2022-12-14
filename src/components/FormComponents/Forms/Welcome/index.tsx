@@ -1,34 +1,37 @@
-import { Box } from "@mui/system"
-import React from "react"
+import { Box } from '@mui/system';
+import React from 'react';
 
-import { incrementCurrentFormNumber, updateWelcomePageData } from "redux/action"
-import { useAppDispatch } from "redux/store"
-import Button from "components/Button"
-import Text from "components/Text"
-import styles from "./style"
+import {
+  incrementCurrentFormNumber,
+  updateWelcomePageData,
+} from 'redux/action';
+import { useAppDispatch } from 'redux/store';
+import Button from 'components/Button';
+import Text from 'components/Text';
+import styles from './style';
 
 const optionData = [
   {
-    title: "Lead Generation Bot",
+    title: 'App Development',
     value: 1,
   },
   {
-    title: "Multi Step Form",
+    title: 'Web Development',
     value: 2,
   },
   {
-    title: "Integrations",
+    title: 'Backend Development',
     value: 3,
   },
-]
+];
 
 const Welcome = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const onClickHandler = (option: string) => {
-    dispatch(incrementCurrentFormNumber())
-    dispatch(updateWelcomePageData(option))
-  }
+    dispatch(incrementCurrentFormNumber());
+    dispatch(updateWelcomePageData(option));
+  };
 
   return (
     <Box sx={styles.welcomeWrapper}>
@@ -46,7 +49,7 @@ const Welcome = () => {
         title={optionData[2].title}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default Welcome
+export default Welcome;
