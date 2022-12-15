@@ -1,33 +1,33 @@
-import React from "react"
-import { Box } from "@mui/system"
+import React from 'react';
+import { Box } from '@mui/system';
 
-import { incrementCurrentFormNumber, updateDepartment } from "redux/action"
-import { useAppDispatch } from "redux/store"
-import Button from "components/Button"
-import Text from "components/Text"
-import styles from "./style"
+import { incrementCurrentFormNumber, updateDepartment } from 'redux/action';
+import { useAppDispatch } from 'redux/store';
+import Button from 'components/Button';
+import Text from 'components/Text';
+import styles from './style';
 
 const optionData = [
   {
-    title: "Marketing",
+    title: 'Marketing',
     value: 1,
   },
   {
-    title: "Sales",
+    title: 'Sales',
     value: 2,
   },
   {
-    title: "Custumer Service",
+    title: 'Developent',
     value: 3,
   },
-]
+];
 const Department = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const onClickHandler = (option: string) => {
-    dispatch(incrementCurrentFormNumber())
-    dispatch(updateDepartment(option))
-  }
+    dispatch(incrementCurrentFormNumber());
+    dispatch(updateDepartment(option));
+  };
 
   return (
     <Box sx={styles.departmentWrapper}>
@@ -45,7 +45,7 @@ const Department = () => {
         title={optionData[2].title}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default Department
+export default Department;
